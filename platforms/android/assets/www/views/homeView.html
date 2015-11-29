@@ -1,0 +1,12 @@
+<ion-view title="home" class="home fullIon">
+  <ion-content class="homeList">
+    <ion-list>
+      <div data-ng-repeat="button in buttons">
+        <button class="button button-positive col col-80 col-offset-10 homeButton" ui-sref={{button.href}}>
+          {{button.name}}<p ng-bind-html="button.icon" class="homeIcon"></p>
+        </button>
+      </div>
+
+    </ion-list>
+  </ion-content>
+</ion-view>

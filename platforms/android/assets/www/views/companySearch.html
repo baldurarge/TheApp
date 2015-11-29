@@ -1,0 +1,35 @@
+<ion-view title="companys" class="companys fullIon">
+  <div class="bar bar-loading bar-assertive loadingBar" ng-if="data.isLoading">
+    <div class="title">Loading....</div>
+  </div>
+  <ion-content class="compList">
+  <div class="col col-80 col-offset-10 compSearchDiv">
+    <ion-list>
+      <div ng-repeat="group in groups">
+        <ion-item class="item-stable" ng-click="toggleGroup(group)" ng-class="{active: isGroupShown(group)}">
+          <i class="icon" ng-class="isGroupShown(group) ? 'ion-minus' : 'ion-plus'"></i>
+          &nbsp;
+          {{group['name']}}
+        </ion-item>
+        <ion-item class="item-accordion"
+                  ng-repeat="item in group"
+                  ng-show="isGroupShown(group)">
+          {{item}}
+        </ion-item>
+      </div>
+    </ion-list>
+
+    <h1 class="message">{{message}}</h1>
+
+  </div>
+  </ion-content>
+  <div class="bar  bar-dark bar-footer item-input-inset" ng-if="!data.isLoading">
+    <label class="item-input-wrapper">
+      <i class="icon ion-ios-search placeholder-icon"></i>
+      <input type="search" placeholder="Search" data-ng-model="searchText">
+    </label>
+    <button class="button button-clear" data-ng-click="search(searchText)">
+      Search
+    </button>
+  </div>
+</ion-view>

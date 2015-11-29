@@ -1,0 +1,36 @@
+<ion-view title="cars" class="cars fullIon">
+
+  <div class="bar bar-loading bar-assertive loadingBar" ng-if="data.isLoading">
+    <div class="title">Loading....</div>
+  </div>
+
+  <ion-content class="carList">
+    <div >
+      <div class="card list cars-list" data-ng-show="showOrNot">
+        <div class="item item-avatar-left">
+          <h2>{{car[0].type}} - nr: {{car[0].registryNumber}}</h2>
+        </div>
+        <div class="item item-body">
+          <p data-ng-if="car[0].registerdAt">Registered At: {{car[0].registeredAt}}</p>
+          <p data-ng-if="car[0].status">Status: {{car[0].status}}</p>
+          <p data-ng-if="car[0].weight">Weight: {{car[0].weight}}</p>
+          <p data-ng-if="car[0].nextCheck">Next Check: {{car[0].nextCheck}}</p>
+          <p data-ng-if="car[0].factoryNumber">Factory number: {{car[0].factoryNumber}}</p>
+          <p data-ng-if="car[0].pollution">Pollution: {{car[0].pollution}}</p>
+        </div>
+      </div>
+      <h1 class="message">{{message}}</h1>
+    </div>
+
+
+  </ion-content>
+  <div class="bar  bar-dark bar-footer item-input-inset">
+    <label class="item-input-wrapper">
+      <i class="icon ion-ios-search placeholder-icon"></i>
+      <input type="search" placeholder="Search" data-ng-model="searchText">
+    </label>
+    <button class="button button-clear" data-ng-click="search(searchText)">
+      Search
+    </button>
+  </div>
+</ion-view>
